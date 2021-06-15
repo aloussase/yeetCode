@@ -1,12 +1,10 @@
 from functools import reduce
+from itertools import takewhile
 
 class Solution:
-    def common_prefix(self, string1, string2):
-        for (i, (c, k)) in enumerate(zip_longest(string1, string2)):
-            if c != k:
-                return string1[:i]
-        return string1
-                
-    
-    def longestCommonPrefix(self, strs: List[str]) -> str:
-        return reduce(self.common_prefix, strs, strs[0])
+    def longestCommonPrefix(self, strs):
+        return reduce(
+            lambda s1, s2: ''.join(c for (c, k) in takewhile(
+                lambda pair: pair[0] == pair[1], zip(s1, s2))),
+            strs, strs[0]
+        )
