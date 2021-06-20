@@ -5,14 +5,12 @@ import static java.lang.System.out;
 
 class Solution {
     public static String longestCommonPrefix(String[] strs) {
-        return Arrays.stream(strs).reduce(strs[0], (acc, s) -> {
-            if (acc.startsWith(s)) return s;
-            return IntStream.range(0, acc.length() < s.length() ? acc.length() : s.length())
-                .takeWhile(i -> acc.charAt(i) == s.charAt(i))
-                .mapToObj(i -> String.valueOf(acc.charAt(i)))
-                .collect(Collectors.joining())
-                .toString();
-        });
+        return Arrays.stream(strs).reduce((acc, s) ->
+                IntStream.range(0, acc.length() < s.length() ? acc.length() : s.length())
+                    .takeWhile(i -> acc.charAt(i) == s.charAt(i))
+                    .mapToObj(i -> String.valueOf(acc.charAt(i)))
+                    .collect(Collectors.joining())
+                ).orElseGet(() -> "");
     }
 
     public static void main(String[] args) {

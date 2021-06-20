@@ -1,8 +1,8 @@
 (defn common-prefix
   [s1 s2]
-  (->> (map #(vector %1 %2) s1 s2)
-       (#(take-while (fn [[c k]] (= c k)) %1))
-       (map (fn [[c k]] c))
+  (->> (map vector s1 s2)
+       (take-while (partial apply =))
+       (map first)
        (apply str)))
 
 (defn solution

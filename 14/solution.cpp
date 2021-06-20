@@ -9,10 +9,10 @@ int
 indexOf(std::string& str, Char c) 
 {
     int index;
-    const char *it = str.c_str();
+    auto it = str.begin();
 
     for (index = 0; index < str.size(); index++, it++) {
-        if (it == &*c) {
+        if (it == c) {
             return index;
         }
     }

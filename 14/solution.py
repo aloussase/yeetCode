@@ -48,9 +48,9 @@ def longest_common_prefix(strs):
 
 # def longest_common_prefix(strs):
 #     return reduce(lambda s1, s2: ''.join(c for (c, k) in 
-#             takewhile(lambda pair: pair[0] == pair[1], zip(s1, s2))),
+#         takewhile(lambda pair: pair[0] == pair[1], zip(s1, s2))),
 #         strs, strs[0])
-    # )
+#     )
 
 
 if __name__ == '__main__':
