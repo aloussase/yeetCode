@@ -1,5 +1,3 @@
-require "spec"
-
 module Solution
   extend self
 
@@ -11,20 +9,8 @@ module Solution
         .join
     end
   end
-end
 
-describe Solution do
-  describe "#longest_common_prefix" do
-    it "[\"flower\",\"flow\",\"flight\"]" do
-      (Solution.longest_common_prefix ["flower","flow","flight"]).should eq "fl"
-    end
-
-    it "[\"dog\",\"racecar\",\"car\"]" do
-      (Solution.longest_common_prefix ["dog","racecar","car"]).should eq ""
-    end
-
-    it "[\"ab\", \"a\"]" do
-      (Solution.longest_common_prefix ["ab", "a"]).should eq "a"
-    end
-  end
+  puts longest_common_prefix ["flower", "flow", "flight"]
+  puts longest_common_prefix ["dog", "racecar", "car"]
+  puts longest_common_prefix ["ab", "a"]
 end

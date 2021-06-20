@@ -1,16 +1,23 @@
 import java.util.Arrays;
 import java.util.stream.IntStream;
 import java.util.stream.Collectors;
+import static java.lang.System.out;
 
 class Solution {
-    public String longestCommonPrefix(String[] strs) {
+    public static String longestCommonPrefix(String[] strs) {
         return Arrays.stream(strs).reduce(strs[0], (acc, s) -> {
-            if (s2.startsWith(s1)) return s1;
-            return IntStream.range(0, s1.length() < s2.length() ? s1.length() : s2.length())
-                .takeWhile(i -> s1.charAt(i) == s2.charAt(i))
-                .mapToObj(i -> String.valueOf(s1.charAt(i)))
+            if (acc.startsWith(s)) return s;
+            return IntStream.range(0, acc.length() < s.length() ? acc.length() : s.length())
+                .takeWhile(i -> acc.charAt(i) == s.charAt(i))
+                .mapToObj(i -> String.valueOf(acc.charAt(i)))
                 .collect(Collectors.joining())
                 .toString();
         });
+    }
+
+    public static void main(String[] args) {
+        out.println(longestCommonPrefix(new String[]{"flower", "flow", "flight"}));
+        out.println(longestCommonPrefix(new String[]{"Dog", "racecar", "car"}));
+        out.println(longestCommonPrefix(new String[]{"ab", "a"}));
     }
 }
